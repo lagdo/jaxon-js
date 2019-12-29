@@ -9,7 +9,7 @@ jaxon.ajax.callback = {
 
     object - The callback object.
     */
-    create: function() {
+    create() {
         var xx = jaxon;
         var xc = xx.config;
         var xcb = xx.ajax.callback;
@@ -53,7 +53,7 @@ jaxon.ajax.callback = {
 
     object - A callback timer object.
     */
-    setupTimer: function(iDelay) {
+    setupTimer(iDelay) {
         return { timer: null, delay: iDelay };
     },
 
@@ -69,7 +69,7 @@ jaxon.ajax.callback = {
     sFunction - (string):  The name of the function associated
         with the timer to be cleared.
     */
-    clearTimer: function(oCallback, sFunction) {
+    clearTimer(oCallback, sFunction) {
         if ('undefined' != typeof oCallback.timers) {
             if ('undefined' != typeof oCallback.timers[sFunction]) {
                 clearTimeout(oCallback.timers[sFunction].timer);
@@ -88,12 +88,12 @@ jaxon.ajax.callback = {
 
     Parameters:
 
-    oCallback - (object):  The callback object (or objects) which 
+    oCallback - (object):  The callback object (or objects) which
         contain the event handlers to be executed.
     sFunction - (string):  The name of the event to be triggered.
     args - (object):  The request object for this request.
     */
-    execute: function(oCallback, sFunction, args) {
+    execute(oCallback, sFunction, args) {
         if ('undefined' != typeof oCallback[sFunction]) {
             var func = oCallback[sFunction];
             if ('function' == typeof func) {

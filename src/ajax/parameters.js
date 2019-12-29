@@ -8,7 +8,7 @@ jaxon.ajax.parameters = {
 
     id - The id od the upload form element
     */
-    /*upload: function(id) {
+    /*upload(id) {
         return {upload: {id: id}};
     },*/
 
@@ -21,7 +21,7 @@ jaxon.ajax.parameters = {
 
     parameter - A parameter passed to an Ajax function
     */
-    /*isUpload: function(parameter) {
+    /*isUpload(parameter) {
         return (parameter != null && typeof parameter == 'object' && typeof parameter.upload == 'object');
     },*/
 
@@ -34,7 +34,7 @@ jaxon.ajax.parameters = {
 
     oRequest - A request object, created initially by a call to <jaxon.ajax.request.initialize>
     */
-    toFormData: function(oRequest) {
+    toFormData(oRequest) {
         var xx = jaxon;
         var xt = xx.tools;
 
@@ -107,7 +107,7 @@ jaxon.ajax.parameters = {
 
     oRequest - A request object, created initially by a call to <jaxon.ajax.request.initialize>
     */
-    toUrlEncoded: function(oRequest) {
+    toUrlEncoded(oRequest) {
         var xx = jaxon;
         var xt = xx.tools;
 
@@ -190,7 +190,7 @@ jaxon.ajax.parameters = {
     /*
     Function: jaxon.ajax.parameters.process
 
-    Processes request specific parameters and generates the temporary 
+    Processes request specific parameters and generates the temporary
     variables needed by jaxon to initiate and process the request.
 
     Parameters:
@@ -198,10 +198,10 @@ jaxon.ajax.parameters = {
     oRequest - A request object, created initially by a call to <jaxon.ajax.request.initialize>
 
     Note:
-    This is called once per request; upon a request failure, this 
+    This is called once per request; upon a request failure, this
     will not be called for additional retries.
     */
-    process: function(oRequest) {
+    process(oRequest) {
         // Make request parameters.
         if (oRequest.upload != false && oRequest.upload.ajax && oRequest.upload.input)
             jaxon.ajax.parameters.toFormData(oRequest);

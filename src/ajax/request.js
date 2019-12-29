@@ -11,7 +11,7 @@ jaxon.ajax.request = {
         that will, in addition, be used to store all request related
         values.  This includes temporary values used internally by jaxon.
     */
-    initialize: function(oRequest) {
+    initialize(oRequest) {
         var xx = jaxon;
         var xc = xx.config;
 
@@ -105,7 +105,7 @@ jaxon.ajax.request = {
      *
      * @returns object|null The object that was at the head of the queue or null if the queue was empty.
      */
-    popAsyncRequest: function(oQueue) {
+    popAsyncRequest(oQueue) {
         if(jaxon.tools.queue.empty(oQueue))
         {
             return null;
@@ -132,7 +132,7 @@ jaxon.ajax.request = {
     This is called each time a request object is being prepared for a call to the server.
     If the request is retried, the request must be prepared again.
     */
-    prepare: function(oRequest) {
+    prepare(oRequest) {
         var xx = jaxon;
         var xt = xx.tools;
 
@@ -263,7 +263,7 @@ jaxon.ajax.request = {
     Parameters:
     oRequest - (object):  The request context object.
     */
-    submit: function(oRequest) {
+    submit(oRequest) {
         oRequest.status.onRequest();
 
         var xx = jaxon;
@@ -305,7 +305,7 @@ jaxon.ajax.request = {
 
     oRequest - (object):  The request context object.
     */
-    _send: function(oRequest) {
+    _send(oRequest) {
         // this may block if synchronous mode is selected
         oRequest.request.send(oRequest.requestData);
     },
@@ -319,7 +319,7 @@ jaxon.ajax.request = {
 
     oRequest - (object):  The request context object.
     */
-    abort: function(oRequest) {
+    abort(oRequest) {
         oRequest.aborted = true;
         oRequest.request.abort();
         jaxon.ajax.response.complete(oRequest);
@@ -342,7 +342,7 @@ jaxon.ajax.request = {
         request.
 
     */
-    execute: function() {
+    execute() {
         var numArgs = arguments.length;
         if(0 == numArgs)
             return false;

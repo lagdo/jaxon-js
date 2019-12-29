@@ -31,7 +31,7 @@ jaxon.ajax.handler = {
     true - The command completed successfully.
     false - The command signalled that it needs to pause processing.
     */
-    execute: function(command) {
+    execute(command) {
         if (jaxon.ajax.handler.isRegistered(command)) {
             // it is important to grab the element here as the previous command
             // might have just created the element
@@ -51,7 +51,7 @@ jaxon.ajax.handler = {
 
     Registers a new command handler.
     */
-    register: function(shortName, func) {
+    register(shortName, func) {
         jaxon.ajax.handler.handlers[shortName] = func;
     },
 
@@ -66,7 +66,7 @@ jaxon.ajax.handler = {
     Returns:
         func - (function): The unregistered function.
     */
-    unregister: function(shortName) {
+    unregister(shortName) {
         var func = jaxon.ajax.handler.handlers[shortName];
         delete jaxon.ajax.handler.handlers[shortName];
         return func;
@@ -86,7 +86,7 @@ jaxon.ajax.handler = {
     been created for the specified command (object).
 
     */
-    isRegistered: function(command) {
+    isRegistered(command) {
         var shortName = command.cmd;
         if (jaxon.ajax.handler.handlers[shortName])
             return true;
@@ -106,7 +106,7 @@ jaxon.ajax.handler = {
     Returns:
         true - (boolean) :
     */
-    call: function(command) {
+    call(command) {
         var shortName = command.cmd;
         return jaxon.ajax.handler.handlers[shortName](command);
     }

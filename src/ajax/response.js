@@ -8,7 +8,7 @@ jaxon.ajax.response = {
 
     oRequest - (object):  The request context object.
     */
-    received: function(oRequest) {
+    received(oRequest) {
         var xx = jaxon;
         var xcb = xx.ajax.callback;
         var gcb = xx.callback;
@@ -50,7 +50,7 @@ jaxon.ajax.response = {
 
     oRequest - (object):  The request context object.
     */
-    complete: function(oRequest) {
+    complete(oRequest) {
         jaxon.ajax.callback.execute(
             [jaxon.callback, oRequest.callback],
             'onComplete',
@@ -99,7 +99,7 @@ jaxon.ajax.response = {
     - This will clear the associated timeout, this function is not designed to be reentrant.
     - When an exception is caught, do nothing; if the debug module is installed, it will catch the exception and handle it.
     */
-    process: function(theQ) {
+    process(theQ) {
         if (null != theQ.timeout) {
             clearTimeout(theQ.timeout);
             theQ.timeout = null;
@@ -134,7 +134,7 @@ jaxon.ajax.response = {
     when - (integer):
         The number of milliseconds to wait before starting/restarting the processing of the queue.
     */
-    setWakeup: function(theQ, when) {
+    setWakeup(theQ, when) {
         if (null != theQ.timeout) {
             clearTimeout(theQ.timeout);
             theQ.timeout = null;
@@ -156,7 +156,7 @@ jaxon.ajax.response = {
 
     oRequest - (object):  The request context object.
     */
-    processor: function(oRequest) {
+    processor(oRequest) {
         var fProc;
 
         if ('undefined' == typeof oRequest.responseProcessor) {
@@ -181,7 +181,7 @@ jaxon.ajax.response = {
 
     oRequest - (object):  The request context object.
     */
-    json: function(oRequest) {
+    json(oRequest) {
 
         var xx = jaxon;
         var xt = xx.tools;
@@ -237,7 +237,7 @@ jaxon.ajax.response = {
 
     oRequest - (object):  The request context object.
     */
-    upload: function(oRequest) {
+    upload(oRequest) {
         var xx = jaxon;
         var xcb = xx.ajax.callback;
         var gcb = xx.callback;

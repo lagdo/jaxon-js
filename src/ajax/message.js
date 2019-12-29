@@ -8,7 +8,7 @@ jaxon.ajax.message = {
         content - (string):  The message content.
         title - (string):  The message title.
     */
-    success: function(content, title) {
+    success(content, title) {
         alert(content);
     },
 
@@ -21,7 +21,7 @@ jaxon.ajax.message = {
         content - (string):  The message content.
         title - (string):  The message title.
     */
-    info: function(content, title) {
+    info(content, title) {
         alert(content);
     },
 
@@ -34,7 +34,7 @@ jaxon.ajax.message = {
         content - (string):  The message content.
         title - (string):  The message title.
     */
-    warning: function(content, title) {
+    warning(content, title) {
         alert(content);
     },
 
@@ -47,7 +47,7 @@ jaxon.ajax.message = {
         content - (string):  The message content.
         title - (string):  The message title.
     */
-    error: function(content, title) {
+    error(content, title) {
         alert(content);
     },
 
@@ -62,7 +62,7 @@ jaxon.ajax.message = {
         yesCallback - (Function): The function to call if the user answers yes.
         noCallback - (Function): The function to call if the user answers no.
     */
-    confirm: function(question, title, yesCallback, noCallback) {
+    confirm(question, title, yesCallback, noCallback) {
         if(noCallback == undefined)
             noCallback = function(){};
         if(confirm(question))
